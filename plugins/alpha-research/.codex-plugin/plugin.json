@@ -1,0 +1,42 @@
+{
+  "name": "alpha-research",
+  "version": "0.1.0",
+  "description": "Use Alpha Research from Codex threads to turn messy data and vague research intent into datasets, remote runs, analysis artifacts, and follow-up decisions.",
+  "author": {
+    "name": "Zenobia Pay"
+  },
+  "homepage": "https://alpharesearch.nyc",
+  "repository": "https://github.com/rprend/alpha-research-codex-plugin",
+  "license": "UNLICENSED",
+  "keywords": [
+    "research",
+    "datasets",
+    "analysis",
+    "remote-runs",
+    "artifacts"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Alpha Research",
+    "shortDescription": "Manage datasets, remote research runs, artifacts, and follow-up decisions.",
+    "longDescription": "Alpha Research gives Codex a thread-native command center for dataset intake, dataset navigation, research design, and research operations. It reuses the existing RESEARCH CLI session and Alpha Research dashboard APIs so Codex can list and inspect datasets, design concrete studies, start and continue remote runs, monitor progress, retrieve artifacts, and explain blocks without making the user operate infrastructure.",
+    "developerName": "Zenobia Pay",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://alpharesearch.nyc",
+    "privacyPolicyURL": "https://alpharesearch.nyc/privacy",
+    "termsOfServiceURL": "https://alpharesearch.nyc/terms",
+    "defaultPrompt": [
+      "List my Alpha Research datasets and tell me which are ready to use.",
+      "Turn this fuzzy question into a concrete research plan before running it.",
+      "Show my active remote runs and retrieve completed artifacts."
+    ],
+    "brandColor": "#1D4ED8",
+    "screenshots": []
+  }
+}
