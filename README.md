@@ -47,7 +47,7 @@ No access tokens are stored in this repository or printed by the MCP tools.
 
 ## Smoke Test
 
-After installation, test the MCP server directly from a checkout of this marketplace:
+Test the MCP server directly from a checkout of this marketplace:
 
 ```bash
 printf '%s\n' \
@@ -57,11 +57,34 @@ printf '%s\n' \
   | node plugins/alpha-research/mcp/server.js
 ```
 
+Then test the package-relative command used after Codex Desktop installs the plugin:
+
+```bash
+cd plugins/alpha-research
+printf '%s\n' \
+  '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' \
+  '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}' \
+  '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"research_login_status","arguments":{}}}' \
+  '{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"research_list_datasets","arguments":{}}}' \
+  | node ./mcp/server.js
+```
+
 Expected:
 
 - `initialize` returns server `alpha-research`
 - `tools/list` returns the Alpha Research MCP tools
 - `research_login_status` returns signed-in state without tokens
+- `research_list_datasets` returns the dataset list when signed in
+
+## Desktop Verification
+
+After upgrading or installing the marketplace in Codex Desktop, start a fresh thread and ask:
+
+```text
+Use Alpha Research to check my login status and list my datasets. Do not expose tokens.
+```
+
+The Desktop plugin UI should show **Alpha Research** as installed/enabled, the fresh thread should be able to call `research_login_status`, and dataset listing should return without printing access tokens.
 
 ## Repository Layout
 

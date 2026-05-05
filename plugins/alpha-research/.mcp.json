@@ -2,8 +2,9 @@
   "mcpServers": {
     "alpha-research": {
       "command": "node",
+      "cwd": ".",
       "args": [
-        "./plugins/alpha-research/mcp/server.js"
+        "./mcp/server.js"
       ]
     }
   }

@@ -25,10 +25,23 @@ It uses the saved RESEARCH CLI session at `~/.research/session.json` and calls t
 
 ## Manual MCP Smoke Test
 
+From the repository root:
+
 ```bash
 printf '%s\n' \
   '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' \
   '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}' \
   '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"research_login_status","arguments":{}}}' \
   | node plugins/alpha-research/mcp/server.js
+```
+
+From this installed plugin package directory:
+
+```bash
+printf '%s\n' \
+  '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' \
+  '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}' \
+  '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"research_login_status","arguments":{}}}' \
+  '{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"research_list_datasets","arguments":{}}}' \
+  | node ./mcp/server.js
 ```
